@@ -78,7 +78,7 @@ Then, you can access the application by going to the following URL: [http://loca
 ## Credits
 
 - Application created by [Erwan Mayolle](https://github.com/emayolle).
-- This readme is using the a template created by [amitmerchant1990](https://github.com/amitmerchant1990).
+- This readme is using the template created by [amitmerchant1990](https://github.com/amitmerchant1990).
 
 ## You may also like...
 
