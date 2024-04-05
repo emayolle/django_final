@@ -1,6 +1,48 @@
 {% extends "base.html" %}
+{% load static %}
+{% load compress %}
 
 {% block content %}
-    <h1>Home</h1>
-    <p>Welcome to the home page!</p>
+    {% compress css %}
+        <link type="text/x-scss" href="{% static 'css/index.scss' %}" rel="stylesheet" media="screen">
+    {% endcompress %}
+
+    <form method="get" class="movie-form">
+        {{ movie_form }}
+        <button type="submit">Search</button>
+    </form>
+
+    {% if movies %}
+        <div class="movies">
+            {% for movie in movies %}
+                <div class="movie">
+                    <a href="#">
+                        <h2>{{ movie.title }} ({{ movie.year }})</h2>
+
+                        <div class="genres">
+                            {% for genre in movie.genres.all %}
+                                <span>{{ genre.name }}</span>
+                            {% endfor %}
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    {% if is_paginated %}
+        <div class="pagination">
+            <span class="step-links">
+                <a class="{% if not page_obj.has_previous or page_obj.number == 1 %}disabled{% endif %}" href="?page=1">&laquo; first</a>
+                <a class="{% if not page_obj.has_previous %}disabled{% endif %}" href="?page={% if page_obj.has_previous %}{{ page_obj.previous_page_number }}{% else %}1{% endif %}">previous</a>
+
+                <span class="current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+
+                <a class="{% if not page_obj.has_next %}disabled{% endif %}" href="?page={% if page_obj.has_next %}{{ page_obj.next_page_number }}{% else %}{{ page_obj.paginator.num_pages }}{% endif %}">next</a>
+                <a class="{% if not page_obj.has_next or page_obj.number == page_obj.paginator.num_pages %}disabled{% endif %}" href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            </span>
+        </div>
+    {% endif %}
 {% endblock %}

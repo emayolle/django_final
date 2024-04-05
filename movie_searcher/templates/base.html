@@ -1,11 +1,24 @@
+{% load static %}
+{% load compress %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Searcher</title>
+    {% compress css %}
+        <link type="text/x-scss" href="{% static 'css/base.scss' %}" rel="stylesheet" media="screen">
+    {% endcompress %}
 </head>
 <body>
+    <header>
+        <nav>
+            <a href="{% url 'index' %}">Home</a>
+            <a href="#">Developper</a>
+        </nav>
+    </header>
+
     {% block content %}
 
     {% endblock content %}    
