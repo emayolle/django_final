@@ -10,7 +10,7 @@ class Genre(models.Model):
 
 class Movie(models.Model):
     title = models.CharField(max_length=255)
-    year = models.IntegerField()
+    year = models.CharField(max_length=15)
     genres = models.ManyToManyField(Genre, related_name='movies')
 
     def __str__(self):

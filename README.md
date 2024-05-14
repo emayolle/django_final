@@ -46,9 +46,9 @@ This project is part of my third year of study at [Junia](https://junia.com/) in
 - [x] Index page with a search bar
 - [x] Search for a movie in the database
 - [x] Display the results to the user
-- [ ] Search for a movie in the [OMDb API](http://www.omdbapi.com/) if no result is found in the database
-- [ ] Save the results in the database if they are found in the API
-- [ ] Documentation of the project
+- [x] Search for a movie in the [OMDb API](http://www.omdbapi.com/)
+- [x] Save the results in the database if they are found in the API
+- [x] Documentation of the project
 - [ ] Unit tests
 
 ## Installation
