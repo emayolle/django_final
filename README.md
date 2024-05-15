@@ -64,7 +64,6 @@ pip install -r requirements.txt
 ## How To Use
 To use the project, you need to run the following command:
 ```bash
-python manage.py makemigrations movie_searcher
 python manage.py migrate
 python manage.py runserver
 ```
